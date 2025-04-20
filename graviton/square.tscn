@@ -30,13 +30,13 @@ region = Rect2(983, 3, 445, 392)
 [sub_resource type="SpriteFrames" id="SpriteFrames_bp8b3"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_g66wl")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0ejnj")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_mledl")
 }, {
 "duration": 1.0,
@@ -74,5 +74,5 @@ unique_name_in_owner = true
 position = Vector2(-1, 0)
 scale = Vector2(0.131537, 0.131537)
 sprite_frames = SubResource("SpriteFrames_bp8b3")
-frame_progress = 0.275373
-speed_scale = 0.2
+frame_progress = 0.775829
+speed_scale = 1.5

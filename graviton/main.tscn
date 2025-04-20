@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgnohoayalx6o"]
+[gd_scene load_steps=13 format=3 uid="uid://bgnohoayalx6o"]
 
 [ext_resource type="PackedScene" uid="uid://bu3l6uq1kp4si" path="res://player.tscn" id="1_ewswa"]
 [ext_resource type="PackedScene" uid="uid://pd2u45cvf4rp" path="res://wall.tscn" id="2_sefs6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlo7kt64sxe0" path="res://rectangle.tscn" id="6_nowvf"]
 [ext_resource type="Texture2D" uid="uid://cq7lueqipxcmu" path="res://Untitled_8.png" id="8_r32ys"]
 [ext_resource type="PackedScene" uid="uid://c4fggofie8w1q" path="res://diamond.tscn" id="9_nixnb"]
+[ext_resource type="PackedScene" uid="uid://c5ec5q7ex405m" path="res://breakable.tscn" id="10_6n504"]
 
 [sub_resource type="Gradient" id="Gradient_x5s20"]
 offsets = PackedFloat32Array(0, 0.00649351, 0.441558, 0.597403)
@@ -60,6 +61,12 @@ position = Vector2(719, 19)
 [node name="wall5" parent="." instance=ExtResource("2_sefs6")]
 position = Vector2(721, 629)
 
+[node name="wall12" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(1230, 628)
+
+[node name="wall13" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(1215, 19)
+
 [node name="wall6" parent="." instance=ExtResource("2_sefs6")]
 position = Vector2(286, 629)
 
@@ -88,9 +95,18 @@ scale = Vector2(0.360867, 1)
 position = Vector2(960, 256)
 rotation = 1.56038
 
+[node name="wall14" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(1456, 257)
+rotation = 1.56038
+
+[node name="wall15" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(1457, 388)
+rotation = 1.56038
+
 [node name="wall8" parent="." instance=ExtResource("2_sefs6")]
 position = Vector2(961, 440)
 rotation = 1.56038
+scale = Vector2(-0.0782764, 1)
 
 [node name="triangle" parent="." instance=ExtResource("4_2e3p3")]
 position = Vector2(399, 322)
@@ -135,3 +151,7 @@ texture = SubResource("GradientTexture2D_6i7bs")
 
 [node name="diamond" parent="." instance=ExtResource("9_nixnb")]
 position = Vector2(429, 170)
+
+[node name="breakable" parent="." instance=ExtResource("10_6n504")]
+position = Vector2(443, 419)
+scale = Vector2(0.573163, 0.915748)

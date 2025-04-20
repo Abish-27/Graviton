@@ -17,7 +17,7 @@ config/icon="res://images/gravitonBOB.png"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [input]
 

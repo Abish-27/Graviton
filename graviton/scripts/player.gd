@@ -36,14 +36,21 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var other = collision.get_collider()
+		
+		if collision:
+			var normal = collision.get_normal()
+			velocity = velocity.bounce(normal)
+			self.velocity = velocity 
+		
 		if other is CharacterBody2D:
 			if other.tag in ['triangle', 'diamond']:
 				if not other.cooling:
 					other.doDamage(self)
-		if collision:
-			var normal = collision.get_normal()
-			velocity = velocity.bounce(normal)
-			self.velocity = velocity  # <-- This line ensures bounce continues next frame
+			if other.tag in ['rectangle']:
+				print('bouncing')
+				var normal = collision.get_normal()
+				velocity = velocity.bounce(normal) * 1.2
+				self.velocity = velocity
 	
 	rotation += velocity.length() * delta * 0.06
 	

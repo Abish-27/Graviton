@@ -1,1 +1,6 @@
 res://main.tscn
+res://breakable.tscn
+res://rectangle.tscn
+res://player.tscn
+res://scripts/player.gd
+res://square.tscn
