@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #----PLAYER------
-var speed = 100.0
+var speed = 200
 var gravity_direction: Vector2 = Vector2.ZERO
 var drag = 0.99
 var bounciness = 1.2 
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Apply gravity
 	if gravity_direction != Vector2.ZERO:
-		velocity += gravity_direction * 200 * delta
+		velocity += gravity_direction * speed * delta
 
 	# Apply drag
 	velocity *= drag
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 func _set_random_motion():
 	var rand_angle = randf() * TAU
 	var rand_dir = Vector2(cos(rand_angle), sin(rand_angle)).normalized()
-	velocity = rand_dir * speed
+	velocity = rand_dir * speed * 0.5
 
 func reset():
 	gravity_direction = Vector2.ZERO
