@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 func _set_random_motion():
 	var rand_angle = randf() * TAU
 	var rand_dir = Vector2(cos(rand_angle), sin(rand_angle)).normalized()
-	velocity = rand_dir * speed * 0.5
+	velocity = rand_dir * speed * 0.6
 
 func reset():
 	gravity_direction = Vector2.ZERO
