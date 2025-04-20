@@ -1,0 +1,137 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgnohoayalx6o"]
+
+[ext_resource type="PackedScene" uid="uid://bu3l6uq1kp4si" path="res://player.tscn" id="1_ewswa"]
+[ext_resource type="PackedScene" uid="uid://pd2u45cvf4rp" path="res://wall.tscn" id="2_sefs6"]
+[ext_resource type="PackedScene" uid="uid://d3b7kraxk3fcu" path="res://ui.tscn" id="3_6ra6e"]
+[ext_resource type="PackedScene" uid="uid://cfbxrb1igtu6y" path="res://book.tscn" id="3_t11nt"]
+[ext_resource type="PackedScene" uid="uid://dgcm07gg6t2bu" path="res://triangle.tscn" id="4_2e3p3"]
+[ext_resource type="PackedScene" uid="uid://d2xhsevpefn67" path="res://square.tscn" id="5_pbgn3"]
+[ext_resource type="PackedScene" uid="uid://bmlo7kt64sxe0" path="res://rectangle.tscn" id="6_nowvf"]
+[ext_resource type="Texture2D" uid="uid://cq7lueqipxcmu" path="res://Untitled_8.png" id="8_r32ys"]
+[ext_resource type="PackedScene" uid="uid://c4fggofie8w1q" path="res://diamond.tscn" id="9_nixnb"]
+
+[sub_resource type="Gradient" id="Gradient_x5s20"]
+offsets = PackedFloat32Array(0, 0.00649351, 0.441558, 0.597403)
+colors = PackedColorArray(0.689655, 0.689655, 0.689655, 1, 1, 1, 1, 1, 0.103896, 0.103896, 0.103896, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6i7bs"]
+gradient = SubResource("Gradient_x5s20")
+fill = 1
+fill_from = Vector2(0.504587, 0.504587)
+fill_to = Vector2(0.0688073, 0)
+
+[node name="main" type="Node2D"]
+
+[node name="player" parent="." node_paths=PackedStringArray("panel") instance=ExtResource("1_ewswa")]
+position = Vector2(130, 155)
+panel = NodePath("../CanvasLayer/Control")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-2, -1)
+scale = Vector2(1, 0.926)
+offset = Vector2(100, 100)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("player", "book") instance=ExtResource("3_6ra6e")]
+z_index = 3
+anchors_preset = 12
+anchor_top = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+player = NodePath("../../player")
+book = NodePath("../book")
+
+[node name="book" parent="CanvasLayer" instance=ExtResource("3_t11nt")]
+visible = false
+position = Vector2(618, 302)
+
+[node name="wall" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(255, 20)
+
+[node name="wall2" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(719, 19)
+
+[node name="wall5" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(721, 629)
+
+[node name="wall6" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(286, 629)
+
+[node name="wall9" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(723, 353)
+
+[node name="wall3" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(22, 295)
+rotation = 1.56038
+
+[node name="wall7" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(23, 531)
+rotation = 1.56038
+
+[node name="wall10" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(447, 556)
+rotation = 1.56038
+scale = Vector2(0.360867, 1)
+
+[node name="wall11" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(261, 115)
+rotation = 1.56038
+scale = Vector2(0.360867, 1)
+
+[node name="wall4" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(960, 256)
+rotation = 1.56038
+
+[node name="wall8" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(961, 440)
+rotation = 1.56038
+
+[node name="triangle" parent="." instance=ExtResource("4_2e3p3")]
+position = Vector2(399, 322)
+
+[node name="triangle2" parent="." instance=ExtResource("4_2e3p3")]
+position = Vector2(650, 469)
+
+[node name="square" parent="." instance=ExtResource("5_pbgn3")]
+position = Vector2(842, 168)
+
+[node name="square2" parent="." instance=ExtResource("5_pbgn3")]
+position = Vector2(234, 403)
+
+[node name="rectangle" parent="." instance=ExtResource("6_nowvf")]
+position = Vector2(138, 335)
+
+[node name="rectangle2" parent="." instance=ExtResource("6_nowvf")]
+position = Vector2(775, 247)
+
+[node name="Untitled9" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(624, 232)
+texture = ExtResource("8_r32ys")
+
+[node name="Untitled10" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(624, 232)
+texture = ExtResource("8_r32ys")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.332881, 0.332881, 0.332881, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(694, 612)
+scale = Vector2(27.0542, 25.4918)
+texture = SubResource("GradientTexture2D_6i7bs")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(133, -210)
+scale = Vector2(27.0542, 25.4918)
+texture = SubResource("GradientTexture2D_6i7bs")
+
+[node name="diamond" parent="." instance=ExtResource("9_nixnb")]
+position = Vector2(429, 170)

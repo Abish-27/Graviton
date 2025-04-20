@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhodieqmeawad"]
+
+[ext_resource type="Texture2D" uid="uid://bw5p4b0sw31bj" path="res://images/starry.png" id="1_fa1do"]
+[ext_resource type="Script" path="res://star.gd" id="1_fikx6"]
+[ext_resource type="Script" path="res://explosion_radius.gd" id="3_3te8l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij6rf"]
+radius = 27.0185
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6s1j"]
+atlas = ExtResource("1_fa1do")
+region = Rect2(59, 0, 636, 654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x5j6"]
+atlas = ExtResource("1_fa1do")
+region = Rect2(718, 0, 636, 654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by2r1"]
+atlas = ExtResource("1_fa1do")
+region = Rect2(1376, 0, 636, 654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrtb4"]
+atlas = ExtResource("1_fa1do")
+region = Rect2(2032, 0, 636, 654)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yicnl"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_i6s1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x5j6")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_by2r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrtb4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c80eq"]
+radius = 90.4434
+
+[node name="star" type="CharacterBody2D"]
+script = ExtResource("1_fikx6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ij6rf")
+
+[node name="starry" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.119595, 0.119595)
+sprite_frames = SubResource("SpriteFrames_yicnl")
+frame_progress = 0.204432
+speed_scale = 1.5
+
+[node name="cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="explosionRadius" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_3te8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius"]
+visible = false
+shape = SubResource("CircleShape2D_c80eq")
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

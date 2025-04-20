@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmyjqo5kvbqmr"]
+
+[ext_resource type="Texture2D" uid="uid://lmbjagxqgw1c" path="res://images/tringle.png" id="1_0tkp8"]
+[ext_resource type="Script" path="res://mini_triangle.gd" id="1_8ajoo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_snh1s"]
+radius = 14.0357
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2miv"]
+atlas = ExtResource("1_0tkp8")
+region = Rect2(42, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c5rd"]
+atlas = ExtResource("1_0tkp8")
+region = Rect2(477, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvdbm"]
+atlas = ExtResource("1_0tkp8")
+region = Rect2(951, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig1fw"]
+atlas = ExtResource("1_0tkp8")
+region = Rect2(1392, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sgvh"]
+atlas = ExtResource("1_0tkp8")
+region = Rect2(1857, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ge55"]
+atlas = ExtResource("1_0tkp8")
+region = Rect2(2307, 0, 391, 426)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62s6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2miv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c5rd")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_pvdbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig1fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sgvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ge55")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="miniTriangle" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8ajoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_snh1s")
+
+[node name="tringle" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -2)
+scale = Vector2(0.0938599, 0.0938599)
+sprite_frames = SubResource("SpriteFrames_62s6i")
+speed_scale = 1.8

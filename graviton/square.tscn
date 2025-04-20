@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2xhsevpefn67"]
+
+[ext_resource type="Script" path="res://scripts/square.gd" id="1_ew2w6"]
+[ext_resource type="Texture2D" uid="uid://dtcjjmqf15m1q" path="res://images/icon.svg" id="1_uumms"]
+[ext_resource type="Script" path="res://scripts/explosion_radius.gd" id="3_2kmnr"]
+[ext_resource type="Texture2D" uid="uid://c0xc0oujd12j0" path="res://images/square.png" id="4_obya1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk1xq"]
+size = Vector2(34, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vp5to"]
+radius = 54.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g66wl"]
+atlas = ExtResource("4_obya1")
+region = Rect2(93, 24, 445, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ejnj"]
+atlas = ExtResource("4_obya1")
+region = Rect2(1451, 3, 445, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mledl"]
+atlas = ExtResource("4_obya1")
+region = Rect2(538, 3, 445, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxd1k"]
+atlas = ExtResource("4_obya1")
+region = Rect2(983, 3, 445, 392)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bp8b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g66wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ejnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mledl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxd1k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="square" type="CharacterBody2D"]
+script = ExtResource("1_ew2w6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_pk1xq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1.90735e-06, 9.53674e-07)
+scale = Vector2(3.52976, 3.51224)
+texture = ExtResource("1_uumms")
+region_enabled = true
+region_rect = Rect2(40.6319, 63.307, 6.31024, 6.37959)
+
+[node name="explosionRadius" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_2kmnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius"]
+shape = SubResource("CircleShape2D_vp5to")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, 0)
+scale = Vector2(0.131537, 0.131537)
+sprite_frames = SubResource("SpriteFrames_bp8b3")
+frame_progress = 0.275373
+speed_scale = 0.2

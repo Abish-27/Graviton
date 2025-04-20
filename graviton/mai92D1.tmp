@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgnohoayalx6o"]
+
+[ext_resource type="PackedScene" uid="uid://bu3l6uq1kp4si" path="res://player.tscn" id="1_ewswa"]
+[ext_resource type="PackedScene" uid="uid://pd2u45cvf4rp" path="res://wall.tscn" id="2_sefs6"]
+[ext_resource type="PackedScene" uid="uid://d3b7kraxk3fcu" path="res://ui.tscn" id="3_6ra6e"]
+
+[node name="main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ewswa")]
+position = Vector2(130, 155)
+
+[node name="wall" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(255, 20)
+
+[node name="wall2" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(719, 19)
+
+[node name="wall5" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(721, 629)
+
+[node name="wall6" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(286, 629)
+
+[node name="wall9" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(723, 353)
+
+[node name="wall3" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(22, 295)
+rotation = 1.56038
+
+[node name="wall7" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(23, 531)
+rotation = 1.56038
+
+[node name="wall10" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(447, 556)
+rotation = 1.56038
+scale = Vector2(0.360867, 1)
+
+[node name="wall11" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(261, 115)
+rotation = 1.56038
+scale = Vector2(0.360867, 1)
+
+[node name="wall4" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(960, 256)
+rotation = 1.56038
+
+[node name="wall8" parent="." instance=ExtResource("2_sefs6")]
+position = Vector2(961, 440)
+rotation = 1.56038
+
+[node name="Control" parent="." instance=ExtResource("3_6ra6e")]
+offset_left = 1063.0
+offset_top = 77.0
+offset_right = 1063.0
+offset_bottom = 77.0

@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgcm07gg6t2bu"]
+
+[ext_resource type="Texture2D" uid="uid://u6ttx5cakcon" path="res://images/Triangle-icon.png" id="1_bksi1"]
+[ext_resource type="Script" path="res://scripts/triangle.gd" id="1_l2eeh"]
+[ext_resource type="Texture2D" uid="uid://lmbjagxqgw1c" path="res://images/tringle.png" id="3_ml5or"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g85m"]
+size = Vector2(57, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2miv"]
+atlas = ExtResource("3_ml5or")
+region = Rect2(42, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c5rd"]
+atlas = ExtResource("3_ml5or")
+region = Rect2(477, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvdbm"]
+atlas = ExtResource("3_ml5or")
+region = Rect2(951, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig1fw"]
+atlas = ExtResource("3_ml5or")
+region = Rect2(1392, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sgvh"]
+atlas = ExtResource("3_ml5or")
+region = Rect2(1857, 0, 391, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ge55"]
+atlas = ExtResource("3_ml5or")
+region = Rect2(2307, 0, 391, 426)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aynjl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2miv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c5rd")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_pvdbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig1fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sgvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ge55")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_802tq"]
+size = Vector2(17, 43)
+
+[node name="triangle" type="CharacterBody2D"]
+script = ExtResource("1_l2eeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 9.5)
+shape = SubResource("RectangleShape2D_8g85m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(4.76837e-07, -1)
+scale = Vector2(0.242188, 0.242188)
+texture = ExtResource("1_bksi1")
+
+[node name="tringle" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, -3)
+scale = Vector2(0.170836, 0.170836)
+sprite_frames = SubResource("SpriteFrames_aynjl")
+frame_progress = 0.245936
+speed_scale = 1.8
+
+[node name="cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -4)
+shape = SubResource("RectangleShape2D_802tq")
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4fggofie8w1q"]
+
+[ext_resource type="Script" path="res://diamond.gd" id="1_qleq8"]
+[ext_resource type="Texture2D" uid="uid://bjl4l7w6asyoc" path="res://images/diamood.png" id="2_4nmaq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_buawe"]
+radius = 25.0
+height = 92.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jr0j"]
+atlas = ExtResource("2_4nmaq")
+region = Rect2(54, 0, 410, 654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1e6k"]
+atlas = ExtResource("2_4nmaq")
+region = Rect2(598, 0, 410, 654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0wi4"]
+atlas = ExtResource("2_4nmaq")
+region = Rect2(1129, 0, 410, 654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43qf0"]
+atlas = ExtResource("2_4nmaq")
+region = Rect2(1622, 0, 410, 654)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5akvg"]
+animations = [{
+"frames": [{
+"duration": 17.0,
+"texture": SubResource("AtlasTexture_0jr0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1e6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0wi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43qf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0wi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1e6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="diamond" type="CharacterBody2D"]
+script = ExtResource("1_qleq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+shape = SubResource("CapsuleShape2D_buawe")
+
+[node name="diamood" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.178049, 0.178049)
+sprite_frames = SubResource("SpriteFrames_5akvg")
+frame_progress = 0.818152
+speed_scale = 1.5
+
+[node name="cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="shooter" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="shooter" to="." method="_on_shooter_timeout"]
