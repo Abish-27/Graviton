@@ -78,8 +78,8 @@ func nuke():
 	elif bomb == 1:
 		$starry.self_modulate = Color('ff47ff')
 	else:
-		%explosionRadius.explode()
-		self.queue_free()
+		%audio.play()
+		explousion()
 		
 	cooling = true
 	%cooldown.start()
@@ -87,3 +87,14 @@ func nuke():
 
 func _on_cooldown_timeout() -> void:
 	cooling = false # Replace with function body.
+
+func explousion():
+	%explousion.visible = true
+	%explousion.play('default')
+
+	
+
+
+func _on_explousion_animation_looped() -> void:
+	%explosionRadius.explode()
+	self.queue_free()

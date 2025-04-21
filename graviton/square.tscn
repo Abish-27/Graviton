@@ -1,46 +1,120 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2xhsevpefn67"]
+[gd_scene load_steps=22 format=3 uid="uid://d2xhsevpefn67"]
 
 [ext_resource type="Script" path="res://scripts/square.gd" id="1_ew2w6"]
-[ext_resource type="Texture2D" uid="uid://dtcjjmqf15m1q" path="res://images/icon.svg" id="1_uumms"]
 [ext_resource type="Script" path="res://scripts/explosion_radius.gd" id="3_2kmnr"]
-[ext_resource type="Texture2D" uid="uid://c0xc0oujd12j0" path="res://images/square.png" id="4_obya1"]
+[ext_resource type="Texture2D" uid="uid://6jqbhsmobbhr" path="res://images/explode.png" id="4_5b6x6"]
+[ext_resource type="Texture2D" uid="uid://b8v6e4blg1p03" path="res://images/squareboo.png" id="4_jb7ya"]
+[ext_resource type="AudioStream" uid="uid://je3qkeexl66x" path="res://music/splosion 2.wav" id="5_yrvfa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pk1xq"]
-size = Vector2(34, 32)
+size = Vector2(36, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vp5to"]
-radius = 54.0
+radius = 84.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g66wl"]
-atlas = ExtResource("4_obya1")
-region = Rect2(93, 24, 445, 392)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uw65"]
+atlas = ExtResource("4_jb7ya")
+region = Rect2(41, 0, 288, 380)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ejnj"]
-atlas = ExtResource("4_obya1")
-region = Rect2(1451, 3, 445, 392)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdi0b"]
+atlas = ExtResource("4_jb7ya")
+region = Rect2(370, 0, 288, 380)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mledl"]
-atlas = ExtResource("4_obya1")
-region = Rect2(538, 3, 445, 392)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp6my"]
+atlas = ExtResource("4_jb7ya")
+region = Rect2(695, 0, 288, 380)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lxd1k"]
-atlas = ExtResource("4_obya1")
-region = Rect2(983, 3, 445, 392)
+[sub_resource type="AtlasTexture" id="AtlasTexture_veqgq"]
+atlas = ExtResource("4_jb7ya")
+region = Rect2(1019, 0, 288, 380)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8elot"]
+atlas = ExtResource("4_jb7ya")
+region = Rect2(1347, 0, 288, 380)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bp8b3"]
 animations = [{
 "frames": [{
-"duration": 20.0,
-"texture": SubResource("AtlasTexture_g66wl")
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_0uw65")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ejnj")
-}, {
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_mledl")
+"texture": SubResource("AtlasTexture_qdi0b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lxd1k")
+"texture": SubResource("AtlasTexture_rp6my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veqgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8elot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veqgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp6my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdi0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vauos"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(0, 0, 536, 541)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2xno"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(604, 0, 536, 541)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts4mx"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(1189, 0, 536, 541)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srsd0"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(1812, 0, 536, 541)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1arj"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(2468, 0, 517, 541)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gocw7"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(2887, 0, 565, 541)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir6bv"]
+atlas = ExtResource("4_5b6x6")
+region = Rect2(3472, 0, 545, 541)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cr3x5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vauos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2xno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts4mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srsd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1arj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gocw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir6bv")
 }],
 "loop": true,
 "name": &"default",
@@ -54,25 +128,36 @@ script = ExtResource("1_ew2w6")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_pk1xq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1.90735e-06, 9.53674e-07)
-scale = Vector2(3.52976, 3.51224)
-texture = ExtResource("1_uumms")
-region_enabled = true
-region_rect = Rect2(40.6319, 63.307, 6.31024, 6.37959)
-
 [node name="explosionRadius" type="Area2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_2kmnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_vp5to")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1, 0)
-scale = Vector2(0.131537, 0.131537)
+position = Vector2(-4.76837e-07, 0)
+rotation = 0.0208168
+scale = Vector2(0.145782, 0.145782)
 sprite_frames = SubResource("SpriteFrames_bp8b3")
-frame_progress = 0.775829
-speed_scale = 1.5
+frame_progress = 0.793698
+speed_scale = 2.0
+
+[node name="explousion" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(4, 5)
+scale = Vector2(0.352952, 0.352952)
+sprite_frames = SubResource("SpriteFrames_cr3x5")
+frame_progress = 0.74173
+speed_scale = 2.0
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-66, -25)
+stream = ExtResource("5_yrvfa")
+volume_db = 8.914
+
+[connection signal="animation_looped" from="explousion" to="." method="_on_explousion_animation_looped"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://63vxhurvdmd0"]
+
+[ext_resource type="Script" path="res://win.gd" id="1_52g4y"]
+[ext_resource type="Texture2D" uid="uid://dtcjjmqf15m1q" path="res://images/icon.svg" id="1_aidw2"]
+[ext_resource type="Texture2D" uid="uid://cp10kucnfjo52" path="res://images/win.png" id="2_l4e6p"]
+[ext_resource type="Texture2D" uid="uid://cn4dgtlf7y5ou" path="res://images/dead.png" id="3_h20r8"]
+[ext_resource type="Texture2D" uid="uid://dhqafrbxjcow6" path="res://images/homebutt.png" id="4_2l0xj"]
+[ext_resource type="Script" path="res://home_button.gd" id="5_jyuhm"]
+[ext_resource type="Texture2D" uid="uid://dtk7vp4wpkg6v" path="res://images/shadow1.png" id="6_0qnff"]
+[ext_resource type="Texture2D" uid="uid://w4mr2h7k3qbm" path="res://images/shadow2.png" id="7_enxyp"]
+[ext_resource type="Texture2D" uid="uid://6sohdp5w4lmd" path="res://images/shadow3.png" id="8_und4c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7mfj"]
+atlas = ExtResource("3_h20r8")
+region = Rect2(0, 0, 345, 292)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx0hr"]
+atlas = ExtResource("3_h20r8")
+region = Rect2(345, 0, 345, 292)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3yhg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7mfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx0hr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0rtb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0qnff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_enxyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_und4c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="win" type="Node2D"]
+script = ExtResource("1_52g4y")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(714, 283)
+scale = Vector2(1341.5, 219.625)
+texture = ExtResource("1_aidw2")
+region_enabled = true
+region_rect = Rect2(63.5892, 66.171, 1.41932, 4.47631)
+
+[node name="Win" type="Sprite2D" parent="."]
+position = Vector2(507, 207)
+scale = Vector2(0.626496, 0.626496)
+texture = ExtResource("2_l4e6p")
+
+[node name="dying" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(525, 137)
+scale = Vector2(0.64726, 0.64726)
+sprite_frames = SubResource("SpriteFrames_y3yhg")
+frame_progress = 0.733218
+speed_scale = 0.3
+
+[node name="homeButton" type="Button" parent="."]
+self_modulate = Color(0.283715, 0.745261, 0.592779, 1)
+z_index = 1
+offset_left = 411.0
+offset_top = 376.0
+offset_right = 1200.0
+offset_bottom = 851.0
+scale = Vector2(0.359998, 0.439999)
+focus_mode = 0
+icon = ExtResource("4_2l0xj")
+flat = true
+script = ExtResource("5_jyuhm")
+
+[node name="shadow" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(533, 559)
+scale = Vector2(0.537691, 0.537691)
+sprite_frames = SubResource("SpriteFrames_f0rtb")
+
+[connection signal="pressed" from="homeButton" to="." method="_on_home_button_pressed"]

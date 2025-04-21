@@ -7,8 +7,10 @@ var drag = 0.99
 var bounciness = 2 
 var inField = false
 var tag = 'square'
+var number = 0
 
 func _ready():
+	%explousion.rotation = randf_range(0, 360)
 	randomize()  # Ensure randomness on every run
 	var rand_angle = randf() * TAU
 	var rand_dir = Vector2(cos(rand_angle), sin(rand_angle)).normalized()
@@ -44,9 +46,9 @@ func _physics_process(delta: float) -> void:
 			var other = collision.get_collider()
 			if other is CharacterBody2D:
 				if "square" in other.name:
-					%explosionRadius.explode()
-					other.queue_free()
-					self.queue_free()
+					%audio.play()
+					explousion(0)
+					other.explousion(1)
 				
 				
 		
@@ -72,3 +74,14 @@ func move_right():
 	
 func move_left():
 	gravity_direction = Vector2.LEFT
+
+func explousion(num):
+	number = num
+		
+	%explousion.visible = true
+	%explousion.play('default')
+
+
+func _on_explousion_animation_looped() -> void:
+	%explosionRadius.explode(number)
+	self.queue_free()

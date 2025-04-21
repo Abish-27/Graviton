@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4fggofie8w1q"]
+[gd_scene load_steps=10 format=3 uid="uid://c4fggofie8w1q"]
 
 [ext_resource type="Script" path="res://diamond.gd" id="1_qleq8"]
 [ext_resource type="Texture2D" uid="uid://bjl4l7w6asyoc" path="res://images/diamood.png" id="2_4nmaq"]
+[ext_resource type="AudioStream" uid="uid://cn7g5lj6ch1hj" path="res://music/Diamond.wav" id="3_c4nvs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_buawe"]
 radius = 25.0
@@ -71,6 +72,11 @@ one_shot = true
 [node name="shooter" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 8.0
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(18, 9)
+stream = ExtResource("3_c4nvs")
 
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="shooter" to="." method="_on_shooter_timeout"]

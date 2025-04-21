@@ -18,3 +18,6 @@ func explode():
 				body.lose_life()
 			else:
 				body.queue_free()
+		elif body is StaticBody2D:
+			if 'breakable' in body.name:
+				body.queue_free()

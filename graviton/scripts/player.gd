@@ -47,7 +47,6 @@ func _physics_process(delta: float) -> void:
 				if not other.cooling:
 					other.doDamage(self)
 			if other.tag in ['rectangle']:
-				print('bouncing')
 				var normal = collision.get_normal()
 				velocity = velocity.bounce(normal) * 1.2
 				self.velocity = velocity
@@ -77,6 +76,44 @@ func move_left():
 	gravity_direction = Vector2.LEFT
 
 func lose_life():
-	lives -= 1
-	panel.lose_life(lives)
+	$particle1.visible = true
+	$particle2.visible = true
+	$particle3.visible = true
+	$particle4.visible = true
+	$particle1.play('default')
+	$particle2.play('default')
+	$particle3.play('default')
+	$particle4.play('default')
 	
+	lives -= 1
+	if lives == 0:
+		get_tree().change_scene_to_file("res://lose.tscn")
+	panel.lose_life(lives)
+
+func gravity_sound():
+	%Gravity.play()
+	
+func stasis_sound():
+	%Stasis.play()
+
+
+func _on_particle_1_animation_looped() -> void:
+	$particle1.stop()
+	$particle1.visible = false
+
+
+func _on_particle_4_animation_looped() -> void:
+	$particle4.stop()
+	$particle4.visible = false
+	
+
+
+
+func _on_particle_2_animation_looped() -> void:
+	$particle2.stop()
+	$particle2.visible = false
+
+
+func _on_particle_3_animation_looped() -> void:
+	$particle3.stop()
+	$particle3.visible = false

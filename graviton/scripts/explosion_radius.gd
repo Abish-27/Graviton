@@ -9,12 +9,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func explode():
+func explode(num):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body is CharacterBody2D:
 			if 'player' in body.name:
-				body.lose_life()
+				if num == 0:
+					body.lose_life()
 			else:
+				body.queue_free()
+		elif body is StaticBody2D:
+			if 'breakable' in body.name:
 				body.queue_free()
 	

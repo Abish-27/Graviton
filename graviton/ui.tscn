@@ -1,13 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3b7kraxk3fcu"]
+[gd_scene load_steps=26 format=3 uid="uid://d3b7kraxk3fcu"]
 
 [ext_resource type="Texture2D" uid="uid://culbiamjle7qi" path="res://images/blue.png" id="1_3c6qd"]
 [ext_resource type="Script" path="res://ui.gd" id="1_yc8on"]
-[ext_resource type="Texture2D" uid="uid://dmklx5kskxnqd" path="res://images/6843867.png" id="2_xh187"]
+[ext_resource type="Texture2D" uid="uid://bw3wvhhx43oie" path="res://images/pause.png" id="2_7o5lc"]
 [ext_resource type="Texture2D" uid="uid://dtcjjmqf15m1q" path="res://images/icon.svg" id="3_2hs4s"]
 [ext_resource type="Texture2D" uid="uid://dfi1uyea6llo6" path="res://images/butt.png" id="3_56gs3"]
 [ext_resource type="Texture2D" uid="uid://ba3paek7lvqrt" path="res://images/bob.png" id="6_voxdd"]
-[ext_resource type="Texture2D" uid="uid://ce45ms5kj65an" path="res://images/109e04b343f7e82.png" id="7_2r0rm"]
-[ext_resource type="AudioStream" uid="uid://5x5gka2t02e3" path="res://music/Recording.wav" id="8_euqwn"]
+[ext_resource type="Texture2D" uid="uid://cp1grfl5l4x2c" path="res://images/book3.png" id="7_6hlgs"]
+[ext_resource type="Texture2D" uid="uid://dhqafrbxjcow6" path="res://images/homebutt.png" id="9_7258m"]
+[ext_resource type="Texture2D" uid="uid://ct4ro40perrs1" path="res://images/stasis.png" id="9_whker"]
+[ext_resource type="Texture2D" uid="uid://dtk7vp4wpkg6v" path="res://images/shadow1.png" id="10_qe278"]
+[ext_resource type="Texture2D" uid="uid://w4mr2h7k3qbm" path="res://images/shadow2.png" id="11_qts2l"]
+[ext_resource type="Texture2D" uid="uid://6sohdp5w4lmd" path="res://images/shadow3.png" id="12_uqkld"]
+[ext_resource type="AudioStream" uid="uid://byfju8mynd1ef" path="res://music/book.wav" id="13_vp7jf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vce65"]
 atlas = ExtResource("6_voxdd")
@@ -61,6 +66,65 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1oac"]
+atlas = ExtResource("9_whker")
+region = Rect2(0, 0, 657, 678)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4rb6"]
+atlas = ExtResource("9_whker")
+region = Rect2(726, 0, 635, 678)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s4f2"]
+atlas = ExtResource("9_whker")
+region = Rect2(1393, 0, 619, 678)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw0mq"]
+atlas = ExtResource("9_whker")
+region = Rect2(2014, 0, 616, 678)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3n1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1oac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4rb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s4f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw0mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s4f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4rb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_um02r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qe278")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qts2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uqkld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -76,23 +140,24 @@ script = ExtResource("1_yc8on")
 
 [node name="stasis" type="Button" parent="."]
 unique_name_in_owner = true
+z_index = 1
 layout_mode = 0
-offset_left = 14.0
-offset_top = -621.0
-offset_right = 534.0
-offset_bottom = -101.0
+offset_left = 43.0
+offset_top = -620.0
+offset_right = 327.0
+offset_bottom = -178.0
 scale = Vector2(0.232213, 0.24)
 focus_mode = 0
-icon = ExtResource("2_xh187")
+icon = ExtResource("2_7o5lc")
 flat = true
 
 [node name="right" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 103.0
-offset_top = -426.0
-offset_right = 232.0
-offset_bottom = -335.0
+offset_left = 104.0
+offset_top = -432.0
+offset_right = 233.0
+offset_bottom = -341.0
 scale = Vector2(0.376351, 0.410447)
 focus_mode = 0
 icon = ExtResource("1_3c6qd")
@@ -102,9 +167,9 @@ flat = true
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 53.0
-offset_top = -429.0
+offset_top = -433.0
 offset_right = 209.0
-offset_bottom = -319.0
+offset_bottom = -323.0
 rotation = -1.57175
 scale = Vector2(0.376346, 0.420146)
 focus_mode = 0
@@ -114,10 +179,10 @@ flat = true
 [node name="left" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 56.0
-offset_top = -383.0
-offset_right = 191.0
-offset_bottom = -288.0
+offset_left = 57.0
+offset_top = -391.0
+offset_right = 192.0
+offset_bottom = -296.0
 rotation = -3.1479
 scale = Vector2(0.416096, 0.420184)
 focus_mode = 0
@@ -128,9 +193,9 @@ flat = true
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 100.0
-offset_top = -385.0
+offset_top = -394.0
 offset_right = 239.0
-offset_bottom = -287.0
+offset_bottom = -296.0
 rotation = -4.73859
 scale = Vector2(0.417362, 0.421203)
 focus_mode = 0
@@ -147,7 +212,7 @@ region_rect = Rect2(16.8422, 14.0263, 14.3684, 18.9868)
 
 [node name="Butt" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(78, -405)
+position = Vector2(79, -413)
 scale = Vector2(0.377451, 0.377451)
 texture = ExtResource("3_56gs3")
 region_enabled = true
@@ -155,7 +220,7 @@ region_rect = Rect2(0, 0, 410.641, 408)
 
 [node name="life1" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(82, -286)
+position = Vector2(83, -311)
 scale = Vector2(0.112257, 0.112257)
 sprite_frames = SubResource("SpriteFrames_3ern6")
 frame_progress = 0.0131866
@@ -163,7 +228,7 @@ speed_scale = 2.7
 
 [node name="life2" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(83, -233)
+position = Vector2(81, -267)
 scale = Vector2(0.112257, 0.112257)
 sprite_frames = SubResource("SpriteFrames_3ern6")
 frame_progress = 0.169006
@@ -171,7 +236,7 @@ speed_scale = 2.7
 
 [node name="life3" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(83, -188)
+position = Vector2(80, -223)
 scale = Vector2(0.112257, 0.112257)
 sprite_frames = SubResource("SpriteFrames_3ern6")
 frame_progress = 0.169006
@@ -180,18 +245,47 @@ speed_scale = 2.7
 [node name="bookButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 35.0
-offset_top = -144.0
-offset_right = 483.0
-offset_bottom = 242.0
-scale = Vector2(0.22221, 0.212907)
+offset_left = 50.0
+offset_top = -201.0
+offset_right = 640.0
+offset_bottom = 554.0
+scale = Vector2(0.118605, 0.113852)
 focus_mode = 0
-icon = ExtResource("7_2r0rm")
+icon = ExtResource("7_6hlgs")
 flat = true
 
-[node name="gravitySound" type="AudioStreamPlayer2D" parent="."]
+[node name="bubble" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("8_euqwn")
+position = Vector2(74, -570)
+scale = Vector2(0.206616, 0.206616)
+sprite_frames = SubResource("SpriteFrames_g3n1a")
+frame_progress = 0.566284
+speed_scale = 0.5
+
+[node name="homeButton" type="Button" parent="."]
+self_modulate = Color(0.998861, 0.524845, 0.646116, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = -123.0
+offset_right = 750.0
+offset_bottom = 314.0
+scale = Vector2(0.159999, 0.2)
+focus_mode = 0
+icon = ExtResource("9_7258m")
+flat = true
+
+[node name="shadow" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(84, -44)
+scale = Vector2(0.255248, 0.255248)
+sprite_frames = SubResource("SpriteFrames_um02r")
+frame_progress = 0.54563
+
+[node name="bookaudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(83, -155)
+stream = ExtResource("13_vp7jf")
 
 [connection signal="pressed" from="stasis" to="." method="_on_stasis_pressed"]
 [connection signal="pressed" from="right" to="." method="_on_right_pressed"]
@@ -199,3 +293,4 @@ stream = ExtResource("8_euqwn")
 [connection signal="pressed" from="left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
 [connection signal="pressed" from="bookButton" to="." method="_on_book_button_pressed"]
+[connection signal="pressed" from="homeButton" to="." method="_on_home_button_pressed"]

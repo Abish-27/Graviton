@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://lmbjagxqgw1c" path="res://images/tringle.png" id="3_ml5or"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g85m"]
-size = Vector2(57, 17)
+size = Vector2(50, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2miv"]
 atlas = ExtResource("3_ml5or")
@@ -57,14 +57,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_802tq"]
-size = Vector2(17, 43)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjrq"]
+radius = 12.0
+height = 40.0
 
 [node name="triangle" type="CharacterBody2D"]
 script = ExtResource("1_l2eeh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 9.5)
+position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_8g85m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -75,8 +76,8 @@ texture = ExtResource("1_bksi1")
 
 [node name="tringle" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(3, -3)
-scale = Vector2(0.170836, 0.170836)
+position = Vector2(2, -2)
+scale = Vector2(0.157029, 0.160535)
 sprite_frames = SubResource("SpriteFrames_aynjl")
 frame_progress = 0.245936
 speed_scale = 1.8
@@ -86,7 +87,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -4)
-shape = SubResource("RectangleShape2D_802tq")
+position = Vector2(-3, -2)
+shape = SubResource("CapsuleShape2D_kpjrq")
 
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

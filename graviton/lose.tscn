@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://byg4nwtmy5pr6"]
+
+[ext_resource type="Script" path="res://lose.gd" id="1_5m3gh"]
+[ext_resource type="Texture2D" uid="uid://cjw6glyyhulo8" path="res://images/died.png" id="2_ga3f5"]
+[ext_resource type="Texture2D" uid="uid://cn4dgtlf7y5ou" path="res://images/dead.png" id="3_2y78r"]
+[ext_resource type="Texture2D" uid="uid://dhqafrbxjcow6" path="res://images/homebutt.png" id="4_a6ad4"]
+[ext_resource type="Script" path="res://home_button.gd" id="5_8jsh4"]
+[ext_resource type="Texture2D" uid="uid://dtcjjmqf15m1q" path="res://images/icon.svg" id="5_52tpl"]
+[ext_resource type="Texture2D" uid="uid://dtk7vp4wpkg6v" path="res://images/shadow1.png" id="6_acve7"]
+[ext_resource type="Texture2D" uid="uid://w4mr2h7k3qbm" path="res://images/shadow2.png" id="7_bry5a"]
+[ext_resource type="Texture2D" uid="uid://6sohdp5w4lmd" path="res://images/shadow3.png" id="8_q26u2"]
+[ext_resource type="AudioStream" uid="uid://c1afxp2pouy7x" path="res://music/Lost.wav" id="10_810ng"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdpim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_acve7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bry5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q26u2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpo7i"]
+atlas = ExtResource("3_2y78r")
+region = Rect2(0, 292, 345, 292)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilo1e"]
+atlas = ExtResource("3_2y78r")
+region = Rect2(345, 292, 345, 292)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hdkgu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpo7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilo1e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lose" type="Node2D"]
+script = ExtResource("1_5m3gh")
+
+[node name="Died" type="Sprite2D" parent="."]
+position = Vector2(536.75, 186.25)
+scale = Vector2(0.599145, 0.599145)
+texture = ExtResource("2_ga3f5")
+
+[node name="homeButton" type="Button" parent="."]
+self_modulate = Color(0.917647, 0.490196, 0.678431, 1)
+z_index = 1
+offset_left = 413.363
+offset_top = 365.0
+offset_right = 1202.36
+offset_bottom = 840.0
+scale = Vector2(0.359998, 0.439999)
+focus_mode = 0
+icon = ExtResource("4_a6ad4")
+flat = true
+script = ExtResource("5_8jsh4")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(714, 283)
+scale = Vector2(1341.5, 219.625)
+texture = ExtResource("5_52tpl")
+region_enabled = true
+region_rect = Rect2(63.5892, 66.171, 1.41932, 4.47631)
+
+[node name="shadow" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(544, 553)
+scale = Vector2(0.537691, 0.537691)
+sprite_frames = SubResource("SpriteFrames_rdpim")
+
+[node name="Lost" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(521, 214)
+stream = ExtResource("10_810ng")
+volume_db = 3.962
+
+[node name="dying" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(522, 97)
+scale = Vector2(0.756849, 0.756849)
+sprite_frames = SubResource("SpriteFrames_hdkgu")
+frame_progress = 0.252881
+speed_scale = 0.3
+
+[connection signal="pressed" from="homeButton" to="." method="_on_home_button_pressed"]

@@ -1,0 +1,167 @@
+[gd_scene load_steps=20 format=3 uid="uid://64awb581bcb7"]
+
+[ext_resource type="Script" path="res://home.gd" id="1_m3ydp"]
+[ext_resource type="Script" path="res://control.gd" id="2_akh6w"]
+[ext_resource type="Texture2D" uid="uid://cs0ab5yw51iu4" path="res://images/play1.png" id="3_7vyi4"]
+[ext_resource type="Texture2D" uid="uid://c0l3fswj2ddxu" path="res://images/gravi.png" id="3_rtj0v"]
+[ext_resource type="Texture2D" uid="uid://ba3paek7lvqrt" path="res://images/bob.png" id="4_6i6jv"]
+[ext_resource type="Script" path="res://button.gd" id="4_l78w1"]
+[ext_resource type="Texture2D" uid="uid://dtk7vp4wpkg6v" path="res://images/shadow1.png" id="6_8ya0q"]
+[ext_resource type="Texture2D" uid="uid://w4mr2h7k3qbm" path="res://images/shadow2.png" id="7_4y81y"]
+[ext_resource type="Texture2D" uid="uid://6sohdp5w4lmd" path="res://images/shadow3.png" id="8_gkns5"]
+[ext_resource type="Texture2D" uid="uid://dtcjjmqf15m1q" path="res://images/icon.svg" id="12_qa3te"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejns4"]
+atlas = ExtResource("4_6i6jv")
+region = Rect2(4, 0, 428, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2gup"]
+atlas = ExtResource("4_6i6jv")
+region = Rect2(448, 0, 408, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j2ht"]
+atlas = ExtResource("4_6i6jv")
+region = Rect2(896, 0, 408, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmegq"]
+atlas = ExtResource("4_6i6jv")
+region = Rect2(1370, 0, 408, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8rs7"]
+atlas = ExtResource("4_6i6jv")
+region = Rect2(1833, 0, 408, 426)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_id47y"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_ejns4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2gup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j2ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmegq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8rs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmegq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j2ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2gup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q781u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8ya0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4y81y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gkns5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_x5s20"]
+offsets = PackedFloat32Array(0, 0.00649351, 0.441558, 0.597403)
+colors = PackedColorArray(0.689655, 0.689655, 0.689655, 1, 1, 1, 1, 1, 0.103896, 0.103896, 0.103896, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lcstg"]
+gradient = SubResource("Gradient_x5s20")
+fill = 1
+fill_from = Vector2(0.504587, 0.504587)
+fill_to = Vector2(0.0688073, 0)
+
+[node name="Home" type="Node2D"]
+script = ExtResource("1_m3ydp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_akh6w")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control"]
+self_modulate = Color(0.728608, 0.64366, 0.993292, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05
+anchor_right = -0.05
+offset_left = 486.0
+offset_top = 301.0
+offset_right = 772.0
+offset_bottom = 616.0
+scale = Vector2(0.48, 0.48)
+focus_mode = 0
+theme_override_font_sizes/font_size = 27
+icon = ExtResource("3_7vyi4")
+flat = true
+script = ExtResource("4_l78w1")
+metadata/_edit_use_anchors_ = true
+
+[node name="graviton" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(550, 178)
+scale = Vector2(0.481676, 0.481676)
+texture = ExtResource("3_rtj0v")
+
+[node name="circle" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(705, 185)
+scale = Vector2(0.221486, 0.242708)
+sprite_frames = SubResource("SpriteFrames_id47y")
+speed_scale = 3.0
+
+[node name="shadow" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(537, 443)
+scale = Vector2(0.464695, 0.464695)
+sprite_frames = SubResource("SpriteFrames_q781u")
+frame_progress = 0.774538
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.868985, 0.868985, 0.868985, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-54, -47)
+scale = Vector2(27.0542, 25.4918)
+texture = SubResource("GradientTexture2D_lcstg")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1188, 703)
+scale = Vector2(27.0542, 25.4918)
+texture = SubResource("GradientTexture2D_lcstg")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(713, 223)
+scale = Vector2(1341.5, 219.625)
+texture = ExtResource("12_qa3te")
+region_enabled = true
+region_rect = Rect2(63.5892, 66.171, 1.41932, 4.47631)
+
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]

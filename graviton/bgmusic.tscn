@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ufe88fetm8hf"]
+
+[ext_resource type="AudioStream" uid="uid://tfi3f0dmqba2" path="res://music/best-game-console-301284.mp3" id="1_ixp77"]
+
+[node name="bgmusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_ixp77")
+volume_db = -25.743
+autoplay = true
+parameters/looping = true

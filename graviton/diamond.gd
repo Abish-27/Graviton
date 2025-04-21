@@ -92,6 +92,7 @@ func _on_shooter_timeout() -> void:
 	shoot_triangle()
 	
 func shoot_triangle():
+	%audio.play()
 	var projectile = mini_triangle_scene.instantiate()
 	projectile.global_position = global_position
 	var angle = randf() * TAU  # TAU = 2π
