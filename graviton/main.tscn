@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgnohoayalx6o"]
+[gd_scene load_steps=21 format=3 uid="uid://bgnohoayalx6o"]
 
 [ext_resource type="PackedScene" uid="uid://bu3l6uq1kp4si" path="res://player.tscn" id="1_ewswa"]
 [ext_resource type="PackedScene" uid="uid://pd2u45cvf4rp" path="res://wall.tscn" id="2_sefs6"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://3mv647njebns" path="res://images/backshot2.png" id="12_vcc6d"]
 [ext_resource type="PackedScene" uid="uid://c8d0ss1hhpebo" path="res://wall_three.tscn" id="13_81584"]
 [ext_resource type="Script" path="res://win_area.gd" id="15_dyyvw"]
+[ext_resource type="Script" path="res://checkpoint_1.gd" id="16_pfeh3"]
 
 [sub_resource type="Gradient" id="Gradient_xsnnm"]
 offsets = PackedFloat32Array(0, 0.00649351, 0.441558, 0.597403)
@@ -29,10 +30,13 @@ fill_to = Vector2(0.0688073, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pukqi"]
 size = Vector2(144, 319)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_856oc"]
+size = Vector2(57, 46)
+
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." node_paths=PackedStringArray("panel") instance=ExtResource("1_ewswa")]
-position = Vector2(-3, 96)
+position = Vector2(-64, 115)
 panel = NodePath("../CanvasLayer/Control")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -2652,4 +2656,14 @@ script = ExtResource("15_dyyvw")
 position = Vector2(157, -37.5)
 shape = SubResource("RectangleShape2D_pukqi")
 
+[node name="checkpoint1" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2838, -503)
+script = ExtResource("16_pfeh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint1"]
+position = Vector2(22, 2)
+shape = SubResource("RectangleShape2D_856oc")
+
 [connection signal="body_entered" from="winArea" to="winArea" method="_on_body_entered"]
+[connection signal="body_entered" from="checkpoint1" to="checkpoint1" method="_on_body_entered"]

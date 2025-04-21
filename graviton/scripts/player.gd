@@ -13,6 +13,8 @@ var tag = 'player'
 
 
 func _ready():
+	if Checkpoint.get_checkpoint() != Vector2.ZERO:
+		global_position = Checkpoint.get_checkpoint()
 	randomize()  # Ensure randomness on every run
 	var rand_angle = randf() * TAU
 	var rand_dir = Vector2(cos(rand_angle), sin(rand_angle)).normalized()
@@ -117,3 +119,6 @@ func _on_particle_2_animation_looped() -> void:
 func _on_particle_3_animation_looped() -> void:
 	$particle3.stop()
 	$particle3.visible = false
+
+
+	

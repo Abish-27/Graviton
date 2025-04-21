@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byg4nwtmy5pr6"]
+[gd_scene load_steps=17 format=3 uid="uid://byg4nwtmy5pr6"]
 
 [ext_resource type="Script" path="res://lose.gd" id="1_5m3gh"]
 [ext_resource type="Texture2D" uid="uid://cjw6glyyhulo8" path="res://images/died.png" id="2_ga3f5"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://w4mr2h7k3qbm" path="res://images/shadow2.png" id="7_bry5a"]
 [ext_resource type="Texture2D" uid="uid://6sohdp5w4lmd" path="res://images/shadow3.png" id="8_q26u2"]
 [ext_resource type="AudioStream" uid="uid://c1afxp2pouy7x" path="res://music/Lost.wav" id="10_810ng"]
+[ext_resource type="Texture2D" uid="uid://cs0ab5yw51iu4" path="res://images/play1.png" id="11_c7dbl"]
+[ext_resource type="Script" path="res://button.gd" id="12_xr6jg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rdpim"]
 animations = [{
@@ -61,10 +63,10 @@ texture = ExtResource("2_ga3f5")
 [node name="homeButton" type="Button" parent="."]
 self_modulate = Color(0.917647, 0.490196, 0.678431, 1)
 z_index = 1
-offset_left = 413.363
-offset_top = 365.0
-offset_right = 1202.36
-offset_bottom = 840.0
+offset_left = 229.0
+offset_top = 366.0
+offset_right = 1018.0
+offset_bottom = 841.0
 scale = Vector2(0.359998, 0.439999)
 focus_mode = 0
 icon = ExtResource("4_a6ad4")
@@ -81,21 +83,45 @@ region_rect = Rect2(63.5892, 66.171, 1.41932, 4.47631)
 
 [node name="shadow" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(544, 553)
+position = Vector2(361, 552)
 scale = Vector2(0.537691, 0.537691)
 sprite_frames = SubResource("SpriteFrames_rdpim")
 
 [node name="Lost" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(521, 214)
 stream = ExtResource("10_810ng")
-volume_db = 3.962
+volume_db = 8.629
 
 [node name="dying" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(522, 97)
 scale = Vector2(0.756849, 0.756849)
 sprite_frames = SubResource("SpriteFrames_hdkgu")
-frame_progress = 0.252881
+frame_progress = 0.303525
 speed_scale = 0.3
 
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(0.728608, 0.64366, 0.993292, 1)
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.05
+anchor_right = -0.05
+offset_left = 612.0
+offset_top = 394.0
+offset_right = 898.0
+offset_bottom = 709.0
+scale = Vector2(0.48, 0.48)
+focus_mode = 0
+theme_override_font_sizes/font_size = 27
+icon = ExtResource("11_c7dbl")
+flat = true
+script = ExtResource("12_xr6jg")
+metadata/_edit_use_anchors_ = true
+
+[node name="shadow2" type="AnimatedSprite2D" parent="."]
+position = Vector2(664, 542)
+scale = Vector2(0.373563, 0.373563)
+sprite_frames = SubResource("SpriteFrames_rdpim")
+
 [connection signal="pressed" from="homeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

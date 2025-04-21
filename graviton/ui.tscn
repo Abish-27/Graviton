@@ -286,6 +286,7 @@ frame_progress = 0.54563
 unique_name_in_owner = true
 position = Vector2(83, -155)
 stream = ExtResource("13_vp7jf")
+volume_db = 10.0
 
 [connection signal="pressed" from="stasis" to="." method="_on_stasis_pressed"]
 [connection signal="pressed" from="right" to="." method="_on_right_pressed"]

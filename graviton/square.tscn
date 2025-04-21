@@ -154,9 +154,8 @@ sprite_frames = SubResource("SpriteFrames_cr3x5")
 frame_progress = 0.74173
 speed_scale = 2.0
 
-[node name="audio" type="AudioStreamPlayer2D" parent="."]
+[node name="audio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(-66, -25)
 stream = ExtResource("5_yrvfa")
 volume_db = 8.914
 

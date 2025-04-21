@@ -4,6 +4,6 @@
 
 [node name="bgmusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_ixp77")
-volume_db = -25.743
+volume_db = -15.838
 autoplay = true
 parameters/looping = true

@@ -239,15 +239,15 @@ visible = false
 position = Vector2(-2, 8)
 shape = SubResource("RectangleShape2D_wfxxk")
 
-[node name="Gravity" type="AudioStreamPlayer2D" parent="."]
+[node name="Gravity" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(-6, 13)
 stream = ExtResource("5_2cx42")
+volume_db = 10.0
 
-[node name="Stasis" type="AudioStreamPlayer2D" parent="."]
+[node name="Stasis" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(20, -2)
 stream = ExtResource("6_cigbb")
+volume_db = 7.0
 
 [node name="particle1" type="AnimatedSprite2D" parent="."]
 visible = false

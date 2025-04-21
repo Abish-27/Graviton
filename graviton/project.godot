@@ -18,6 +18,7 @@ config/icon="res://images/gravitonBOB.png"
 [autoload]
 
 Bgmusic="*res://bgmusic.tscn"
+Checkpoint="*res://checkpoint.gd"
 
 [display]
 

@@ -70,7 +70,7 @@ unique_name_in_owner = true
 position = Vector2(525, 137)
 scale = Vector2(0.64726, 0.64726)
 sprite_frames = SubResource("SpriteFrames_y3yhg")
-frame_progress = 0.733218
+frame_progress = 0.302932
 speed_scale = 0.3
 
 [node name="homeButton" type="Button" parent="."]

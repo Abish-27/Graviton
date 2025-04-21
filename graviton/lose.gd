@@ -17,3 +17,8 @@ func _process(delta: float) -> void:
 
 func _on_home_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://home.tscn")
+
+
+func _on_button_pressed():
+	Bgmusic.stream_paused = false
+	get_tree().change_scene_to_file("res://main.tscn")
